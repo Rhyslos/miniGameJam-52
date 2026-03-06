@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bxl1jaa8v1edh"]
+
+[ext_resource type="PackedScene" uid="uid://xkjq6gwhfuhm" path="res://Player/player.tscn" id="1_4lov7"]
+[ext_resource type="PackedScene" uid="uid://dl3xanlpbdh1j" path="res://scenes/greybox.tscn" id="2_b7r86"]
+
+[node name="Dev Level" type="Node2D" unique_id=177744761]
+
+[node name="Player" parent="." unique_id=278709381 instance=ExtResource("1_4lov7")]
+position = Vector2(427, 371)
+
+[node name="Greybox" parent="." unique_id=925553912 instance=ExtResource("2_b7r86")]
+position = Vector2(434.00003, 584)
+scale = Vector2(18.52, 1)
+
+[node name="Greybox2" parent="." unique_id=1916812204 instance=ExtResource("2_b7r86")]
+position = Vector2(702, 451)
+scale = Vector2(1, 3.24)
+
+[node name="Greybox3" parent="." unique_id=1386896559 instance=ExtResource("2_b7r86")]
+position = Vector2(557, -21)
+scale = Vector2(1, 16.0704)
+
+[node name="Greybox4" parent="." unique_id=567023154 instance=ExtResource("2_b7r86")]
+position = Vector2(89, 479)
+scale = Vector2(1, 2.3651211)
+
+[node name="Greybox5" parent="." unique_id=355835561 instance=ExtResource("2_b7r86")]
+position = Vector2(-13, 338.00003)
+scale = Vector2(1, 2.3651211)
