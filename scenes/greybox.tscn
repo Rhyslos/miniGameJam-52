@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dl3xanlpbdh1j"]
+
+[ext_resource type="Script" uid="uid://c6s76tcdcv1op" path="res://script/Greybox.cs" id="1_aumbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q51k8"]
+size = Vector2(64, 64)
+
+[node name="Greybox" type="Node2D" unique_id=925553912]
+script = ExtResource("1_aumbr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2007721151]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1508703793]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2091065098]
+shape = SubResource("RectangleShape2D_q51k8")
