@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://xkjq6gwhfuhm"]
+
+[ext_resource type="Script" uid="uid://x6crpid5ns30" path="res://Player/Player.cs" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://c0wh8bv7cig8h" path="res://script/StateMachine.cs" id="2_btcbx"]
+[ext_resource type="Script" uid="uid://b3yh17m6akgae" path="res://script/Components/State/Idle.cs" id="3_k53q1"]
+[ext_resource type="Script" uid="uid://owiqcs1bfwat" path="res://script/Components/State/Run.cs" id="4_fhl08"]
+[ext_resource type="Script" uid="uid://bd4dudb23wx6h" path="res://script/Components/State/Air.cs" id="5_vtle1"]
+[ext_resource type="Script" uid="uid://ds5o253iin0ns" path="res://script/Components/State/WallInteract.cs" id="6_fhl08"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvfyp"]
+radius = 6.0
+
+[node name="Player" type="CharacterBody2D" unique_id=278709381 node_paths=PackedStringArray("VisualRect", "ShoulderRay", "WaistRay")]
+script = ExtResource("1_4ntmi")
+WallRunDuration = 0.5
+VisualRect = NodePath("ColorRect")
+ShoulderRay = NodePath("RayCast2D")
+WaistRay = NodePath("RayCast2D2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=164172423]
+shape = SubResource("CapsuleShape2D_hvfyp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=593914435]
+offset_left = -6.0
+offset_top = -15.0
+offset_right = 6.0
+offset_bottom = 15.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=326564512 node_paths=PackedStringArray("initialState")]
+script = ExtResource("2_btcbx")
+initialState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=545329769]
+script = ExtResource("3_k53q1")
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=332229088]
+script = ExtResource("4_fhl08")
+
+[node name="Air" type="Node" parent="StateMachine" unique_id=1249034959]
+script = ExtResource("5_vtle1")
+
+[node name="FloorSlide" type="Node" parent="StateMachine" unique_id=1413513600]
+
+[node name="WallInteract" type="Node" parent="StateMachine" unique_id=631943613]
+script = ExtResource("6_fhl08")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=182192988]
+zoom = Vector2(3, 3)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1176557943]
+position = Vector2(0, -6)
+target_position = Vector2(14, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=42596498]
+position = Vector2(0, 1)
+target_position = Vector2(14, 0)
